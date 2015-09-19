@@ -17,7 +17,7 @@ func NewEncodeBytes(b []byte) *EncodeBytes {
 }
 
 func (en *EncodeBytes) ReSet() {
-	*en = []byte{}
+	*en = EncodeBytes{}
 }
 
 func (en *EncodeBytes) Set(b []byte) {
@@ -37,6 +37,14 @@ func (en *EncodeBytes) EnJson(s interface{}) {
 func (en *EncodeBytes) DeJson(s interface{}) {
 	json.Unmarshal(*en, s)
 	return
+}
+
+func (en *EncodeBytes) SumJson(d ...*EncodeBytes) {
+	sum := make(map[string]interface{})
+	for _, v := range d {
+		v.DeJson(&sum)
+	}
+	en.EnJson(sum)
 }
 
 func (en *EncodeBytes) EnGob(s interface{}) {
