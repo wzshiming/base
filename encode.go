@@ -40,7 +40,7 @@ func (en *EncodeBytes) DeJson(s interface{}) {
 }
 
 func (en *EncodeBytes) SumJson(d ...*EncodeBytes) {
-	sum := make(map[string]interface{})
+	sum := map[string]interface{}{}
 	for _, v := range d {
 		v.DeJson(&sum)
 	}
@@ -76,7 +76,7 @@ func EnGob(s interface{}) *EncodeBytes {
 }
 
 func SumJson(d ...*EncodeBytes) *EncodeBytes {
-	sum := make(map[string]interface{})
+	sum := map[string]interface{}{}
 	for _, v := range d {
 		v.DeJson(&sum)
 	}
