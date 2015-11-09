@@ -30,11 +30,17 @@ func (en *EncodeBytes) Bytes() []byte {
 }
 
 func (en *EncodeBytes) EnJson(s interface{}) {
+	if en == nil {
+		return
+	}
 	*en, _ = json.Marshal(s)
 	return
 }
 
 func (en *EncodeBytes) DeJson(s interface{}) {
+	if en == nil {
+		return
+	}
 	json.Unmarshal(*en, s)
 	return
 }
