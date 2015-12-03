@@ -6,6 +6,7 @@ func NewStora() *Stora {
 	return &Stora{}
 }
 
+
 func (st *Stora) Set(k string, v interface{}) {
 	if (*st)[k] == nil {
 		(*st)[k] = EnJson(v)
