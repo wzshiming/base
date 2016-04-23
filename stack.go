@@ -38,3 +38,7 @@ func PanicErr(err *error, msg ...string) {
 		}
 	}
 }
+
+func Debug(msg ...interface{}) {
+	fmt.Println(msg...)
+}

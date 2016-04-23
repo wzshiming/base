@@ -43,7 +43,7 @@ func NOTICE(v ...interface{}) {
 }
 
 func PANIC(v ...interface{}) {
-	printf(pani, v...)
+	panic(fmt.Errorf("%s\n%s", pani, fmt.Sprintln(v...)))
 }
 
 func printf(h string, v ...interface{}) {
